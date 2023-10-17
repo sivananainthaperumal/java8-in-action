@@ -10,6 +10,9 @@ public class Apple implements Fruit{
         this.color = color;
     }
 
+    public Apple() {
+    }
+
     @Override
     public int getWeight() {
         return weight;
