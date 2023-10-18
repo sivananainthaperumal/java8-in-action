@@ -3,6 +3,8 @@ package com.dsp.streams;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static com.dsp.streams.Menu.menu;
+
 
 /*
 Stream api - declarative, composable and parallelizable
@@ -11,26 +13,6 @@ that supports data processing operations
  */
 public class StreamIntro {
 
-    List<Dish> menu = Arrays.asList(
-            new Dish("pork", false, 800, Dish.Type.MEAT),
-            new Dish("beef", false, 700, Dish.Type.MEAT),
-            new Dish("chicken", false, 400, Dish.Type.MEAT),
-            new Dish("french fries", true, 530, Dish.Type.OTHER),
-            new Dish("rice", true, 350, Dish.Type.OTHER),
-            new Dish("season fruit", true, 120, Dish.Type.OTHER),
-            new Dish("pizza", true, 550, Dish.Type.OTHER),
-            new Dish("prawns", false, 300, Dish.Type.FISH),
-            new Dish("salmon", false, 450, Dish.Type.FISH)
-    );
-
-/*    public void populateMenu(){
-        menu.add(new Dish("Dosa",120));
-        menu.add(new Dish("Chapathi", 240));
-        menu.add(new Dish("Salad",80));
-        menu.add(new Dish("Biryani", 680));
-        menu.add(new Dish("Fried Rice", 440));
-        menu.add(new Dish("Idli", 40));
-    }*/
 
     public void printDishes(List<Dish> menu){
         for (Dish dish:menu) {
@@ -62,13 +44,13 @@ public class StreamIntro {
         StreamIntro streamIntro = new StreamIntro();
         //streamIntro.populateMenu();
         System.out.println("All Menu");
-        streamIntro.printDishes(streamIntro.menu);
+        streamIntro.printDishes(menu);
         System.out.println("Low Calorie Dishes");
         streamIntro.printDishes(streamIntro.getLowCalorieDishes());
 
         //Stream way of sorting and filtering
         System.out.println("Using stream api");
-        List<Dish> lowCalorieDishes = streamIntro.menu.stream()
+        List<Dish> lowCalorieDishes = menu.stream()
                         .filter(dish->dish.getCalorie()<400)
                         .sorted(Comparator.comparing(Dish::getCalorie))
                         .collect(Collectors.toList());
