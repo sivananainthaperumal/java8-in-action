@@ -21,4 +21,6 @@ public class Menu {
         dishes.stream().forEach(System.out::println);
     }
 
+
+
 }

@@ -67,4 +67,10 @@ public class Dish {
 
     public enum calorieLevel {LOW,NORMAL,FAT};
 
+    public  calorieLevel getCalorieLevel(){
+        if(calorie<=400) return calorieLevel.LOW;
+        else if(calorie>=400 && calorie<=600) return calorieLevel.NORMAL;
+        else return calorieLevel.FAT;
+    }
+
 }
